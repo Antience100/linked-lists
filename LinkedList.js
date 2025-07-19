@@ -51,17 +51,24 @@ export function LinkedList() {
   };
 
   return {
+    // Adding new node to end of list
     append,
+    // Adding new node to start of list
     prepend,
+    // Returns total size of the list
     size: () => {
       return size;
     },
+    // Returns the first "head" node of the list
     head: () => {
       return head.value;
     },
+
+    // Returns the end "tail" node of the list
     tail: () => {
       return tail.value;
     },
+    // Returns the node from a given index/position in list
     at,
   };
 }
