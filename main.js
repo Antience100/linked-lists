@@ -12,13 +12,4 @@ list.append("Gorilla");
 list.append("Lion");
 list.append("Elephant");
 
-// console.log(list.tail());
-// list.pop();
-// console.log(list.tail());
-// list.pop();
-// list.pop();
-// list.pop();
-// console.log(list.tail());
-// console.log(list.at(1));
-
-console.log(list.contains("Tiger"));
+console.log(list.find("Turkey"));

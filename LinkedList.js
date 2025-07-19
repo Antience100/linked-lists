@@ -73,7 +73,7 @@ export function LinkedList() {
 
   const contains = (value) => {
     if (head === null) {
-      console.log("No list exists to check");
+      console.log("No list exists to search");
       return null;
     }
 
@@ -91,6 +91,24 @@ export function LinkedList() {
     }
     return false;
   };
+
+  const find = (value) => {
+    if (head === null) {
+      console.log("No list exists to search");
+      return null; 
+    }
+
+    let current = head;
+    let index = 1;
+    while(current.next) {
+      current = current.next;
+      index++;
+      if(current.value === value) {
+        return index;
+      }
+    }
+    return null;
+  }
 
   return {
     // Adding new node to end of list
@@ -124,5 +142,7 @@ export function LinkedList() {
     pop,
     // Returns true if passed in a value that is in the list, otherwise return false
     contains,
+    // Returns the index of a node containing the value, or null if no node found
+    find,
   };
 }
