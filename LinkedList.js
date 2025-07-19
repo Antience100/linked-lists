@@ -33,7 +33,7 @@ export function LinkedList() {
 
   const at = (index) => {
     if (index < 1 || index > size) {
-      console.log("Invalid index");
+      console.log("Invalid index value");
       return null;
     }
 
@@ -50,6 +50,27 @@ export function LinkedList() {
     return null;
   };
 
+  const pop = () => {
+    if (head === null) {
+      console.log("Nothing to pop!");
+      return null;
+    } else if (head === tail) {
+      head = null;
+      tail = null;
+      size--;
+    }
+
+    let current = head;
+    let prev = head;
+    while(current.next) {
+      prev = current;
+      current = current.next;
+    }
+    tail = prev;
+    tail.next = null;
+    size--;
+  };
+
   return {
     // Adding new node to end of list
     append,
@@ -61,14 +82,24 @@ export function LinkedList() {
     },
     // Returns the first "head" node of the list
     head: () => {
-      return head.value;
+      if (head !== null) {
+        return head.value;
+      } else {
+        return null;
+      }
     },
 
     // Returns the end "tail" node of the list
     tail: () => {
-      return tail.value;
+      if (tail !== null) {
+        return tail.value;
+      } else {
+        return null;
+      }
     },
     // Returns the node from a given index/position in list
     at,
+    // Removes the end "tail" node from the list
+    pop,
   };
 }
