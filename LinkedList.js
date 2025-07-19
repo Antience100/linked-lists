@@ -5,6 +5,7 @@ export function LinkedList() {
   let tail = null;
   let size = 0;
 
+  // Adding new node to end of list
   const append = (value) => {
     const node = Node(value);
 
@@ -18,6 +19,7 @@ export function LinkedList() {
     size++;
   };
 
+  // Adding new node to start of list
   const prepend = (value) => {
     const node = Node(value);
 
@@ -31,9 +33,10 @@ export function LinkedList() {
     size++;
   };
 
+  // Returns the node from a given index/position in list
   const at = (index) => {
     if (index < 1 || index > size) {
-      console.log("Invalid index value");
+      console.log("Invalid index value!");
       return null;
     }
 
@@ -50,6 +53,7 @@ export function LinkedList() {
     return null;
   };
 
+  // Removes the end "tail" node from the list
   const pop = () => {
     if (head === null) {
       console.log("Nothing to pop!");
@@ -71,9 +75,10 @@ export function LinkedList() {
     size--;
   };
 
+  // Returns true if passed in a value that is in the list, otherwise return false
   const contains = (value) => {
     if (head === null) {
-      console.log("No list exists to search");
+      console.log("No list exists to search!");
       return null;
     }
 
@@ -92,23 +97,40 @@ export function LinkedList() {
     return false;
   };
 
+  // Returns the index of a node containing the value, or null if no node found
   const find = (value) => {
     if (head === null) {
-      console.log("No list exists to search");
-      return null; 
+      console.log("No list exists to search!");
+      return null;
     }
 
     let current = head;
     let index = 1;
-    while(current.next) {
+    while (current.next) {
       current = current.next;
       index++;
-      if(current.value === value) {
+      if (current.value === value) {
         return index;
       }
     }
     return null;
-  }
+  };
+
+  // Prints out the lists objects as strings e.g. ( value ) -> ( value ) -> ( value) -> null
+  const toString = () => {
+    if (head === null) {
+      console.log("No list to print out!");
+      return null;
+    }
+    let strings = "";
+    let current = head;
+    while (current.next) {
+      strings += `(${current.value}) -> `;
+      current = current.next;
+    }
+    strings += "null";
+    return strings;
+  };
 
   return {
     // Adding new node to end of list
@@ -144,5 +166,7 @@ export function LinkedList() {
     contains,
     // Returns the index of a node containing the value, or null if no node found
     find,
+    // Prints out the lists objects as strings e.g. ( value ) -> ( value ) -> ( value) -> null
+    toString,
   };
 }

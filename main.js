@@ -12,4 +12,4 @@ list.append("Gorilla");
 list.append("Lion");
 list.append("Elephant");
 
-console.log(list.find("Turkey"));
+console.log(list.toString());
