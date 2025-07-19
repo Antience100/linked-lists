@@ -57,18 +57,39 @@ export function LinkedList() {
     } else if (head === tail) {
       head = null;
       tail = null;
-      size--;
+      size = 0;
     }
 
     let current = head;
     let prev = head;
-    while(current.next) {
+    while (current.next) {
       prev = current;
       current = current.next;
     }
     tail = prev;
     tail.next = null;
     size--;
+  };
+
+  const contains = (value) => {
+    if (head === null) {
+      console.log("No list exists to check");
+      return null;
+    }
+
+    if (value === head.value && size === 1) {
+      console.log("Contains " + value + ": " + true);
+      return true;
+    }
+
+    let current = head;
+    while (current.next) {
+      if (current.value === value) {
+        return true;
+      }
+      current = current.next;
+    }
+    return false;
   };
 
   return {
@@ -101,5 +122,7 @@ export function LinkedList() {
     at,
     // Removes the end "tail" node from the list
     pop,
+    // Returns true if passed in a value that is in the list, otherwise return false
+    contains,
   };
 }
