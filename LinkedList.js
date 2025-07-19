@@ -125,7 +125,7 @@ export function LinkedList() {
     let strings = "";
     let current = head;
     while (current.next) {
-      strings += `(${current.value}) -> `;
+      strings += `( ${current.value} ) -> `;
       current = current.next;
     }
     strings += "null";
